@@ -31,6 +31,33 @@ In this section, we introduce our proposed voting system that aims to solve some
 		\caption{{\footnotesize High level architecture of the proposed system and the interaction between its components}}
 \end{figure}
 
+\subsubsection{1. System components}
+
+Our proposed system consists of the following components:
+
+\textit{1) Admin dashboard} The dashboard application provides the administrative authority with an interface to interact with both the smart contract and the backend server. This component is responsible for managing voting events. The administrative authority fills-in the event's title, description along with candidates information and so on. The most critical information provided being the candidates' names and assigned ids are stored on the Blockchain, whereas less critical information like candidates' descriptions and media files are stored on the centralized server.
+
+\textit{2) Voting machine} Each polling station is equipped with machines that run the voting application. These machines are preferably equipped with touchscreen capabilities allowing the voters an ease of use. Authorized voters have physical access to these machines and are required to authenticate using biometric means (ID Card \& fingerprint). The application running on these machines retrieve and send data from both the Ethereum network and the backend servers. What is retrieved from the Ethereum network is the candidates names and what is send is the id of the chosen candidate, and for the backend, the application retrieve media files and additional data used for better graphic display and it sends log information to the backend
+
+\textit{3) Backend server} This component is supportive by design, 
+
+\textit{4) Smart contract}
+
+
+\subsubsection{2. Setup \& configuration}
+
+To make the system operational, few steps are taken prior to creating any event or casting any vote. The two main steps are:
+
+\textit{1) Deploying the smart contract}
+
+\textit{2) Setup the backend}
+
+\subsubsection{3. Creating voting events}
+
+
+
+\subsubsection{4. Casting votes}
+
 \begin{list}{}{}
 \item \textbf{(1)} The admin operating the dashboard launches and monitors voting events
 \item \textbf{(2)} Essential data (candidates name and id, event title, start \& finish dates) are saved in the Blockchain along with the list of authorized accounts that can interact with the smart contract.
