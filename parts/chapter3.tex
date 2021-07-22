@@ -31,32 +31,28 @@ In this section, we introduce our proposed voting system that aims to solve some
 		\caption{{\footnotesize High level architecture of the proposed system and the interaction between its components}}
 \end{figure}
 
-\subsubsection{1. System components}
+\subsubsection{A. System components}
 
 Our proposed system consists of the following components:
 
-\textit{1) Admin dashboard} The dashboard application provides the administrative authority with an interface to interact with both the smart contract and the backend server. This component is responsible for managing voting events. The administrative authority fills-in the event's title, description along with candidates information and so on. The most critical information provided being the candidates' names and assigned ids are stored on the Blockchain, whereas less critical information like candidates' descriptions and media files are stored on the centralized server.
+\textit{a.) Admin dashboard:} The dashboard application provides the administrative authority with an interface to interact with both the smart contract and the backend server. This component is responsible for managing voting events. The administrative authority fills-in the event's title, description along with candidates information and the addresses of Ethereum accounts that are authorized to cast a vote. The most critical information provided being the candidates' names and assigned ids are stored on the Blockchain, whereas less critical information like candidates' descriptions and media files are stored on the centralized server.
 
-\textit{2) Voting machine} Each polling station is equipped with machines that run the voting application. These machines are preferably equipped with touchscreen capabilities allowing the voters an ease of use. Authorized voters have physical access to these machines and are required to authenticate using biometric means (ID Card \& fingerprint). The application running on these machines retrieve and send data from both the Ethereum network and the backend servers. What is retrieved from the Ethereum network is the candidates names and what is send is the id of the chosen candidate, and for the backend, the application retrieve media files and additional data used for better graphic display and it sends log information to the backend
+\textit{b.) Voting machine:} Each polling station is equipped with machines that contains an Ethereum wallet and runs the voting application. These machines are preferably equipped with touchscreen capabilities allowing the voters an ease of use. Authorized voters have physical access to these machines and are required to authenticate using biometric means (ID Card \& fingerprint). The application running on these machines retrieve and send data from both the Ethereum network and the backend servers. What is retrieved from the Ethereum network is the candidates names and what is send is the id of the chosen candidate, and for the backend, the application retrieve media files and additional data used for better graphic display and it sends log information to the backend
 
-\textit{3) Backend server} This component is supportive by design, 
+\textit{c.) Backend server:} This component is complementary by design. The main responsibilities of this component is to ensure secure authentication of voters, storing and supply of complemntary data to both the admin dashboard application and the voter application.
 
-\textit{4) Smart contract}
+\textit{d.) Smart contract:} Our voting smart contract (see figure \ref{smart_contract_1}) is deployed once for all voting event. The contract is responsible for writing into the Blockchain (state variables) through the various functions we defined. Both the voter application and the admin application interact with the same contract, however only the administrative authority using the admin account has the ability to create a voting event or grant voting privileges to other account.
 
 
-\subsubsection{2. Setup \& configuration}
+\subsubsection{B. Setup \& configuration}
 
 To make the system operational, few steps are taken prior to creating any event or casting any vote. The two main steps are:
 
-\textit{1) Deploying the smart contract}
+\textit{1) Deploying the smart contract:} To make our smart contract available to both (both admin \& voters) we need to deploy it. To deploy our contract we need an Ethereum account (belonging to the administrative authority) that has Ether (Gas), a deployment script or plugin, we also need access to an Ethereum node either our own or via an API like Infura\cite{EthereumAPIIPFS} or Alchemy\cite{AlchemyBlockchainDeveloper}.
 
-\textit{2) Setup the backend}
+\textit{2) Setup the backend:} In order for our backend to serve its complementary role, we need to develop our specific \acrshort{CRUD} operations, in a secure manner, allowing the voting machines to authenticate voters and retrieve additional data and also write to the server.
 
-\subsubsection{3. Creating voting events}
-
-
-
-\subsubsection{4. Casting votes}
+\subsubsection{C. Components' interactions}
 
 \begin{list}{}{}
 \item \textbf{(1)} The admin operating the dashboard launches and monitors voting events
@@ -68,7 +64,7 @@ To make the system operational, few steps are taken prior to creating any event 
 \end{list}
 
 \subsection{Diagrams}
-\subsubsection{Admin sequence diagram}
+\subsubsection{Voting event creation diagram}
 
 \begin{figure}[H]
 	\centering
@@ -80,7 +76,7 @@ Launching an election requires that the administrator get access to the administ
 
 Next, the administrator is tasked with providing the account addresses of the Ethereum accounts running on each voting machine, this list will be the list of the Ethereum account addresses allowed to interact with the smart contract and alter the vote count of any candidates by incrementing it.
 
-\subsubsection{Voter sequence diagram}
+\subsubsection{Vote casting diagram}
 
 \begin{figure}[H]
 	\centering

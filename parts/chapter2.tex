@@ -13,7 +13,7 @@ Ethereum is a Blockchain platform with its own \gls{cryptocurrency}, called Ethe
 
 Ethereum intends to create an alternative protocol for building decentralized applications, providing a different set of tradeoffs that its creators believe will be very useful for a large class of decentralized applications, with particular emphasis on situations where rapid development time, security for small and rarely used applications, and the ability of different applications to very efficiently interact, are important. Ethereum does this by building what is essentially the ultimate abstract foundational layer: a Blockchain with a built-in Turing-complete programming language, allowing anyone to write smart contracts and decentralized applications where they can create their own arbitrary rules for ownership, transaction formats and state transition functions.\cite{buterinvitalikEthereumWhitePaper2013}
 
-In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or EVM) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
+In the Ethereum universe, there is a single, canonical computer (called the Ethereum Virtual Machine, or \acrshort{EVM}) whose state everyone on the Ethereum network agrees on. Everyone who participates in the Ethereum network (every Ethereum node) keeps a copy of the state of this computer. Additionally, any participant can broadcast a request for this computer to perform arbitrary computation. Whenever such a request is broadcast, other participants on the network verify, validate and carry out ("execute") the computation. This causes a state change in the EVM, which is committed and propagated throughout the entire network.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
 \subsection{Accounts}
 In Ethereum, the state is made up of objects called "accounts", with each account having a 20-byte address and state transitions being direct transfers of value and information between accounts. An Ethereum account contains four fields:
@@ -90,7 +90,7 @@ A consensus mechanism in a cryptoeconomic system also helps prevent certain kind
 
 \subsection{Dapps}
 
-A dapp has its backend code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers.
+A dapp has its \gls{backend} code running on a decentralized peer-to-peer network. Contrast this with an app where the backend code is running on centralized servers.
 
 A dapp can have frontend code and user interfaces written in any language (just like an app) that can make calls to its backend. Furthermore, its frontend can be hosted on decentralized storage.\cite{ethereumcommunityEthereumDevelopmentDocumentation}
 
